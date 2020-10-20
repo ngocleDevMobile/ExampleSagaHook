@@ -7,35 +7,37 @@ import {decreaseAction} from '../actions'
 
 const CounterComponent = () => {
     const dispatch = useDispatch();
+    const times = useSelector((state) => state.counterReducers);
     const onDecrement = (step) => {
-        dispatch(decreaseAction(step))
+        dispatch(decreaseAction(step));
     }
     const onIncrement = (step) => {
-        dispatch(increaseAction(step))
+        dispatch(increaseAction(step));
     }
-    const times = useSelector((state) => state.counterReducers);
-    console.log("State-----+"+JSON.stringify(times))
+    console.log("State-----+"+JSON.stringify(times));
+    //Alert state
+    alert(`State after change: ${JSON.stringify(times)}`);
         return (
             <View style={{flex: 1, marginTop: Platform.OS === 'ios' ? 34 : 0}}>
                 <Text style={{margin: 20, fontWeight: 'bold', color: 'forestgreen', fontSize: 20}}>
-                     Redux saga tutorial
+                    Redux saga tutorial
                 </Text>
                 <View style={{height: 50, margin: 10, flexDirection: 'row'}}>
                     <Button containerStyle={{
                         padding: 10, height: 45, borderRadius: 10, backgroundColor: 'darkviolet'
                     }}
                     style={{fontSize: 18, color: 'white'}}
-                    onPress={() => onDecrement(1)}
-                    >
+                    onPress={() => {
+                        onDecrement(1)}}
+                         >
                         Decrement -
                     </Button>
                     <Button containerStyle={{
-                        padding: 10, height: 45, borderRadius: 10, backgroundColor: 'darkviolet'
+                        padding: 10, height: 45, borderRadius: 10, backgroundColor: 'darkviolet', marginLeft: 30
                     }}
                     style={{fontSize: 18, color: 'white'}}
-                    onPress={() => 
-                        onIncrement(1)}
-                    >
+                    onPress={() =>
+                        onIncrement(1)}>
                         Increment +
                     </Button>
                 </View>
