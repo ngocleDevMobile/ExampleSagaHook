@@ -52,7 +52,7 @@ const CounterComponent = () => {
                         padding: 10, height: 45, borderRadius: 10, backgroundColor: 'orange', marginLeft: 30
                     }}
                     style={{fontSize: 18, color: 'white'}}
-                    onPress={() => navigation.navigate('ListMovie')}>
+                    onPress={() => navigation.navigate('PlayerLog')}>
                         Get List Movie
                     </Button>
                 </View>
